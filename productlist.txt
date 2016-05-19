@@ -1,0 +1,5 @@
+product list for self watering plant
+
+Metal shims possibly used for soil moisture probes http://www.mcmaster.com/#97235k129/=12h1yln 
+Soil moisture sensor https://www.sparkfun.com/products/13322 
+Humidity and Temperature sensor https://www.sparkfun.com/products/13763 
