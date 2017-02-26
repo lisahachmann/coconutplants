@@ -11,7 +11,7 @@ int pumpswitch = 2;
 int led = 3;
 int soilvalue;
 unsigned long time;
-unsigned long prevTime;
+unsigned long prevtime;
 boolean extreme = false;
 
 void setup(){
@@ -22,25 +22,29 @@ pinMode(soilsensor, INPUT);
 pinMode(pumpswitch, OUTPUT);
 pinmode(led, OUTPUT);
 
+prevtime = 0;
+
 }
 
 void loop(){
 //do I want to record when it last watered so I get a sense of how often it gets watered?
 
 // once a minute, check the soil sensor value and battery value
-time = millis();
 soilvalue = analogRead(soilsensor);
 batteryvalue = analogRead(batterysensor);
+
+currenttime = millis();
+if (currenttime-prevtime > 1000){ //every minute, 1000 milliseconds in a minute
 
 if (soilvalue <= && soilvalue >= ){
     //perfect range
     //If it's in the perfect range, go back to the timer
-    break //? forgot how to break out of a state in C
+    return
 }
 if (soilvalue <= && soilvalue >= ){
     //tad of water
     //If it's below, give water for a little
-    //calc prevTime
+    //calc prevtime
     and if !extreme (check)
     digitalWrite(pumpswitch, HIGH);
     //if time >prevTime by more than X seconds, go low
@@ -55,5 +59,7 @@ if (soilvalue < || soilvalue > || batteryvalue < 100){
     extreme = true;
 
 }
+prevtime = currenttime;
 
+}
 }
